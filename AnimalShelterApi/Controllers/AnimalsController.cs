@@ -1,4 +1,5 @@
 using AnimalShelterApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,6 +7,7 @@ namespace AnimalShelterApi.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
+  [Authorize]
   public class AnimalsController : ControllerBase
   {
     private readonly AnimalShelterApiContext _db;
