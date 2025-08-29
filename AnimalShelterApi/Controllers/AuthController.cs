@@ -36,5 +36,35 @@ namespace AnimalShelterApi.Controllers
         return BadRequest();
       }
     }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> Login(Login login)
+    {
+      Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(login.Username, login.Password, isPersistent: false, lockoutOnFailure: false);
+      if (result.Succeeded)
+      {
+        var accessToken = GenerateJSONWebToken();
+        return Ok(accessToken);
+      }
+      else
+      {
+        return BadRequest("There is something wrong with your username or password.");
+      }
+    }
+
+    private string GenerateJSONWebToken()
+    {
+      SymmetricSecurityKey securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+      SigningCredentials credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+      JwtSecurityToken token = new JwtSecurityToken(
+        issuer: _configuration["Jwt:Issuer"],
+        audience: _configuration["Jwt:Audience"],
+        expires: DateTime.Now.AddMinutes(10),
+        signingCredentials: credentials
+      );
+
+      return new JwtSecurityTokenHandler().WriteToken(token);
+    }
   }
 }
