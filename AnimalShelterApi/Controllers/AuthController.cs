@@ -48,7 +48,7 @@ namespace AnimalShelterApi.Controllers
       }
       else
       {
-        return BadRequest("There is something wrong with your username or password.");
+        return Ok("Error: There is something wrong with your username or password.");
       }
     }
 
