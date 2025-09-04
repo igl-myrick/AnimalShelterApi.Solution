@@ -42,7 +42,7 @@ _3: You will need to create an `appsettings.json` file within the `AnimalShelter
   },
   "Jwt": {
     "Key": "[YOUR-KEY-HERE]",
-    "Issuer": "http://localhost:5000",
+    "Issuer": "http://localhost:5124",
     "Audience": "dotnetclient"
   }
 }
@@ -64,33 +64,33 @@ _7: Once the program is running, you can make calls to the API through either yo
 
 _Registration:_
 
-    POST http://localhost:5000/api/auth/register
+    POST http://localhost:5124/api/auth/register
 
 _Logging in:_
 
-    POST http://localhost:5000/api/auth/login
+    POST http://localhost:5124/api/auth/login
 
 ### Shelter endpoints:
 
 _Access a list of all animals:_
 
-    GET http://localhost:5000/api/animals/
+    GET http://localhost:5124/api/animals/
 
 _Access a specific animal's entry by id:_
 
-    GET http://localhost:5000/api/animals/{id}
+    GET http://localhost:5124/api/animals/{id}
 
 _Add a new animal:_
 
-    POST http://localhost:5000/api/animals/
+    POST http://localhost:5124/api/animals/
 
 _Edit an existing animal:_
 
-    PUT http://localhost:5000/api/animals/{id}
+    PUT http://localhost:5124/api/animals/{id}
 
 _Delete an existing animal:_
 
-    DELETE http://localhost:5000/api/animals/{id}
+    DELETE http://localhost:5124/api/animals/{id}
 
 ### Endpoint details
 
@@ -121,13 +121,13 @@ _The first GET route, which displays all animals, has three optional parameters 
 
 | Parameter | Type | Required | Description | Example query |
 |---|---|---|---|---|
-| species | String | not required | Returns all animals of the given species | GET http://localhost:5000/api/animals?species=cat |
-| breed | String | not required | Returns all animals of the given breed | GET http://localhost:5000/api/animals?breed=tabby
-| name | String | not required | Returns all animals with a matching name | GET http://localhost:5000/api/animals?name=jack
+| species | String | not required | Returns all animals of the given species | GET http://localhost:5124/api/animals?species=cat |
+| breed | String | not required | Returns all animals of the given breed | GET http://localhost:5124/api/animals?breed=tabby
+| name | String | not required | Returns all animals with a matching name | GET http://localhost:5124/api/animals?name=jack
 
 _You can also chain these queries together, for example:_ 
 
-``GET http://localhost:5000/api/animals?species=cat&breed=tabby``
+``GET http://localhost:5124/api/animals?species=cat&breed=tabby``
 
 ---
 
@@ -142,7 +142,7 @@ _When making a request to the POST endpoint, you must include a body in JSON for
 }
 ```
 
-_PUT requests have similar body requirements, but you must additionally specify the id of the animal you wish to edit. Here is an example request to ``http://localhost:5000/api/animals/1``:_
+_PUT requests have similar body requirements, but you must additionally specify the id of the animal you wish to edit. Here is an example request to ``http://localhost:5124/api/animals/1``:_
 
 ```
 {
