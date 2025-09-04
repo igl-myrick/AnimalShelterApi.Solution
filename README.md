@@ -1,5 +1,3 @@
-<!-- documentation in readme / make client -->
-
 # Animal Shelter API
 
 #### An API for an animal shelter.
