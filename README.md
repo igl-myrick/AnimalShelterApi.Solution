@@ -14,7 +14,7 @@
 
 ## Description
 
-_An API designed for an animal shelter. The API contains a list of all animals, the ability to add new animals to the shelter list, and functionality to edit or deleting existing animals. In order to access animal information, users must register an account via the ``register`` endpoint. After registering, users can access the ``login`` endpoint, which will give them access to the animal endpoints for 10 minutes before they must sign in again._
+_An API designed for an animal shelter. The API contains a list of all animals, the ability to add new animals to the shelter list, and functionality to edit or deleting existing animals. In order to access animal information, users must register an account via the ``register`` endpoint. The project uses authentication tokens to allow users access to animal-related routes. After registering, users can access the ``login`` endpoint, which will assign them a token giving them access to the animal endpoints for 10 minutes before they must sign in again._
 
 _Note: When making API calls through Postman, please copy the token returned by the ``login`` route. To make calls, access the ``Authorization`` tab of your request, set the type to ``Bearer Token``, and paste your token. Once again, tokens expire after 10 minutes. After that, you will need to log in again and update your token._
 
@@ -48,7 +48,7 @@ _3: You will need to create an `appsettings.json` file within the `AnimalShelter
 }
 ```
 
-_Insert your own MySQL username in place of [YOUR-USER-HERE], MySQL password in place of [YOUR-PASSWORD-HERE], and the name of your database in place of [YOUR-DB-NAME]. You will additionally need to insert a string of letters and/or numbers at least 32 characters long in place of [YOUR-KEY-HERE]._
+_Insert your own MySQL username in place of [YOUR-USER-HERE], MySQL password in place of [YOUR-PASSWORD-HERE], and the name of your database in place of [YOUR-DB-NAME]. You will additionally need to insert a string of letters and/or numbers at least 32 characters long in place of [YOUR-KEY-HERE]. Remove the square brackets when including your own information._
 
 _4: Once the `appsettings.json` file has been created, run the command `dotnet ef database update` in your terminal to create the database._
 
